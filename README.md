@@ -42,7 +42,7 @@ PFX (hoặc .p12) là định dạng chứa private key, certificate và CA chai
 
 openssl pkcs12 -export -out certificate.pfx -inkey private.key -in certificate.crt -certfile ca_bundle.crt
 
-📌 Ví dụ: Gộp các file .crt, .key và chuỗi CA vào một file .pfx để cài lên Windows Server hoặc IIS.
+ Ví dụ: Gộp các file .crt, .key và chuỗi CA vào một file .pfx để cài lên Windows Server hoặc IIS.
 
 II. Domain
 
@@ -141,7 +141,7 @@ rsync incremental
 
 rsync -av --delete src/ dest/
 
-📌 Chỉ đồng bộ các file mới hoặc thay đổi, giúp tiết kiệm băng thông.
+Chỉ đồng bộ các file mới hoặc thay đổi, giúp tiết kiệm băng thông.
 
 VIII. cat command
 
@@ -182,7 +182,7 @@ Dùng sed để find and replace một string trong file
 
 sed -i 's/localhost/127.0.0.1/g' nginx.conf
 
-📌 Ví dụ: thay toàn bộ từ localhost thành 127.0.0.1 trong file cấu hình Nginx.
+Ví dụ: thay toàn bộ từ localhost thành 127.0.0.1 trong file cấu hình Nginx.
 
 XII. traceroute/tracert command
 
@@ -269,7 +269,7 @@ Set Immutable Attribute
 
 chattr +i file.txt
 
-📌 Không thể xóa hoặc sửa file khi đã gán thuộc tính này.
+*Không thể xóa hoặc sửa file khi đã gán thuộc tính này.
 
 XVIII. find command
 
@@ -312,19 +312,19 @@ cut kí tự thứ  trong string
 
 echo "abcdef" | cut -c3
 
-📌 In ra ký tự thứ 3 → c
+* In ra ký tự thứ 3 → c
 
 cut từ kí tự thứ  trở về sau
 
 echo "abcdef" | cut -c4-
 
-📌 In ra từ ký tự thứ 4 trở đi → def
+* In ra từ ký tự thứ 4 trở đi → def
 
 cut từ kí tự thứ  trở về trước
 
 echo "abcdef" | cut -c-4
 
-📌 In ra từ ký tự đầu đến ký tự thứ 4 → abcd
+* In ra từ ký tự đầu đến ký tự thứ 4 → abcd
 
 XXII. dig command
 
