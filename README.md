@@ -210,6 +210,57 @@ hping3 vietnix.vn -S -p 80
 
 ---
 
+# Kiểm tra kết nối đến domain vietnix.vn bằng ping và hping3
+
+## 1. Dùng `ping` để kiểm tra kết nối đến `vietnix.vn`
+
+```bash
+ping vietnix.vn
+```
+
+**Kết quả:**
+```bash
+PING vietnix.vn (14.225.253.240) 56(84) bytes of data.
+64 bytes from 14.225.253.240: icmp_seq=1 ttl=53 time=24.0 ms
+64 bytes from 14.225.253.240: icmp_seq=2 ttl=53 time=95.0 ms
+...
+--- vietnix.vn ping statistics ---
+7 packets transmitted, 7 received, 0% packet loss
+rtt min/avg/max/mdev = 12.366/35.375/94.994/25.534 ms
+```
+
+### Giải thích:
+- `ping` sử dụng **ICMP Echo Request** để kiểm tra kết nối.
+- `icmp_seq`: số thứ tự gói.
+- `ttl`: số hop còn lại.
+- `time`: độ trễ phản hồi (ms).
+- **Kết luận**: `vietnix.vn` phản hồi tốt, 0% mất gói.
+
+---
+
+## 2. Dùng `hping3` để kiểm tra `vietnix.vn`
+
+```bash
+sudo hping3 vietnix.vn
+```
+
+**Kết quả:**
+```bash
+HPING vietnix.vn (wlo1 14.225.253.240): NO FLAGS are set, 40 headers + 0 data bytes
+--- vietnix.vn hping statistic ---
+14 packets transmitted, 0 packets received, 100% packet loss
+```
+
+### Giải thích:
+- `hping3` mặc định gửi TCP không có cờ → máy chủ thường bỏ qua.
+- Không có phản hồi không có nghĩa là lỗi.
+- Muốn test “TCP Ping” nên dùng:
+```bash
+sudo hping3 -S -p 80 vietnix.vn
+```
+
+---
+
 ##  SSH Command
 ### SSH Command là gì?
 
