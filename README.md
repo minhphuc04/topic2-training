@@ -284,6 +284,7 @@ Sed (Stream Editor) là một công cụ dòng lệnh trong Linux/Unix dùng đ�
 
 ```bash
 sed -i 's/old/new/g' file.txt
+Thay tất cả các chuỗi "old" thành "new" trong mỗi dòng (g là global).
 ```
 
 ##  Traceroute/Tracert
