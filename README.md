@@ -253,12 +253,20 @@ EOF
 ```
 
 ##  Echo Command
+### Echo Command là gì?
+
+Echo là một lệnh trong Linux/Unix dùng để hiển thị chuỗi văn bản ra màn hình hoặc ghi chuỗi đó vào file. Nó thường được dùng trong shell script để in thông tin, xuất giá trị biến, hoặc tạo nội dung file.
+
 ```bash
 echo "new line" >> file.txt      # thêm dòng
 echo "replace" > file.txt        # ghi đè
 ```
 
 ##  Tail/Head Command
+### Tail/Head Command là gì?
+
+Tail và Head là hai lệnh trong Linux/Unix dùng để hiển thị nội dung dòng đầu tiên hoặc dòng cuối cùng của một file văn bản.
+
 ```bash
 tail file.txt
 tail -f file.txt
@@ -266,16 +274,33 @@ head file.txt
 ```
 
 ##  Sed Command
+### Sed Command là gì?
+
+Sed (Stream Editor) là một công cụ dòng lệnh trong Linux/Unix dùng để xử lý và chỉnh sửa văn bản theo luồng. Nó cho phép tìm kiếm, thay thế, xóa hoặc chèn dòng trong file mà không cần mở file bằng trình soạn thảo.
+
 ```bash
 sed -i 's/old/new/g' file.txt
 ```
 
 ##  Traceroute/Tracert
+### Traceroute/Tracert là gì?
+
+Traceroute (trên Linux/macOS) và Tracert (trên Windows) là công cụ dòng lệnh dùng để theo dõi đường đi của gói tin từ máy tính của bạn đến một địa chỉ đích (IP hoặc domain), thông qua các router trung gian.
+
+Nó giúp xác định số lượng “hops” (bước nhảy) và vị trí xảy ra độ trễ hoặc sự cố trong quá trình truyền dữ liệu qua mạng.
+
+
 ```bash
 traceroute vietnix.vn
 ```
 
 ##  Netstat Command
+### Netstat Command là gì?
+
+Netstat (Network Statistics) là một lệnh trong Linux/Unix dùng để hiển thị các kết nối mạng, bảng định tuyến, thống kê giao thức, các cổng đang lắng nghe (listening ports), và các tiến trình sử dụng mạng.
+
+Lệnh này thường được sử dụng để kiểm tra tình trạng mạng và phân tích các kết nối TCP/UDP đang hoạt động.
+
 ```bash
 netstat -tuln
 netstat -n
@@ -286,6 +311,10 @@ netstat -u       # chỉ UDP
 ```
 
 ##  Sort Command
+### Sort Command là gì?
+
+Sort là một lệnh trong Linux/Unix dùng để sắp xếp các dòng văn bản trong một file hoặc đầu vào theo thứ tự tăng dần hoặc giảm dần. Nó hỗ trợ sắp xếp theo bảng chữ cái, theo số, theo cột và nhiều kiểu tùy chỉnh khác.
+
 ```bash
 sort file.txt
 sort -r file.txt
@@ -293,18 +322,34 @@ sort -k2 file.txt
 ```
 
 ##  Uniq Command
+### Uniq Command là gì?
+
+Uniq là một lệnh trong Linux/Unix dùng để lọc ra các dòng trùng lặp liên tiếp trong một file hoặc đầu vào. Nó thường được dùng kết hợp với `sort` để loại bỏ hoàn toàn các dòng trùng nhau và có thể đếm số lần xuất hiện của mỗi dòng.
+
 ```bash
 uniq file.txt
 uniq -c file.txt
 ```
 
 ##  Wc Command
+### Wc Command là gì?
+
+Wc (Word Count) là một lệnh trong Linux/Unix dùng để đếm số dòng, số từ và số ký tự trong một file hoặc đầu vào. Đây là công cụ hữu ích để thống kê nhanh nội dung văn bản.
+
 ```bash
 wc -l file.txt
 wc -m file.txt
 ```
 
 ##  Chmod, Chown, Chattr
+### Chmod, Chown, Chattr là gì?
+
+- `chmod`: là lệnh dùng để thay đổi quyền truy cập (read, write, execute) của file hoặc thư mục trong Linux/Unix.
+
+- `chown`: là lệnh dùng để thay đổi chủ sở hữu (user) và nhóm (group) của file hoặc thư mục.
+
+- `chattr`: là lệnh dùng để thay đổi thuộc tính mở rộng (extended attributes) của file, ví dụ như đặt file ở chế độ không thể chỉnh sửa (immutable).
+
 ```bash
 chmod 755 file
 chmod u+x script.sh
@@ -313,6 +358,10 @@ chattr +i file
 ```
 
 ##  Find Command
+### Find Command là gì?
+
+Find là một lệnh trong Linux/Unix dùng để tìm kiếm file và thư mục theo tên, loại, thời gian sửa đổi, quyền, kích thước hoặc các tiêu chí khác. Nó hỗ trợ tìm kiếm đệ quy trong thư mục và có thể thực hiện hành động trên các file tìm được.
+
 ```bash
 find . -name "*.log"
 find . -type d -name abc
@@ -321,6 +370,12 @@ find . -type f -name abc -exec chmod 444 {} \;
 ```
 
 ##  Cp/Mv Command
+### Cp/Mv Command là gì?
+
+- `cp`: là lệnh trong Linux/Unix dùng để sao chép file hoặc thư mục từ vị trí này sang vị trí khác.
+
+- `mv`: là lệnh dùng để di chuyển hoặc đổi tên file và thư mục. Nếu đích đến là cùng tên file,
+
 ```bash
 cp file.txt /dest/
 cp -r folder/ /dest/
@@ -328,6 +383,10 @@ mv file.txt /dest/
 ```
 
 ##  Cut Command
+### Cut Command là gì?
+
+Cut là một lệnh trong Linux/Unix dùng để trích xuất các phần cụ thể của dòng văn bản, dựa trên vị trí ký tự hoặc trường (field) được phân tách bởi dấu phân cách. Nó thường được sử dụng để lấy cột dữ liệu từ file văn bản hoặc đầu ra của lệnh khác.
+
 ```bash
 echo "123456" | cut -c3
 echo "abcdef" | cut -c3-
@@ -335,12 +394,24 @@ echo "abcdef" | cut -c-3
 ```
 
 ##  Dig Command
+### Dig Command là gì?
+
+Dig (Domain Information Groper) là một công cụ dòng lệnh trong Linux/Unix dùng để truy vấn hệ thống DNS. Nó cho phép kiểm tra bản ghi DNS (như A, MX, NS, TXT...) của tên miền, hiển thị chi tiết quá trình phân giải và thời gian phản hồi từ máy chủ DNS.
+
 ```bash
 dig vietnix.vn A
 dig @8.8.8.8 vietnix.vn MX
 ```
 
 ##  Tar/Zip/Unzip Command
+### Tar/Zip/Unzip Command là gì?
+
+- `tar`: là lệnh trong Linux/Unix dùng để nén hoặc giải nén các file và thư mục thành định dạng `.tar` hoặc `.tar.gz`.
+
+- `zip`: là lệnh dùng để nén file hoặc thư mục thành định dạng `.zip`.
+
+- `unzip`: là lệnh dùng để giải nén các file `.zip` đã được tạo trước đó.
+
 ```bash
 tar -czvf file.tar.gz folder/
 tar -xzvf file.tar.gz
@@ -349,6 +420,12 @@ unzip file.zip
 ```
 
 ##  Mount/Umount Command
+### Mount/Umount Command là gì?
+
+- `mount`: là lệnh trong Linux/Unix dùng để gắn một thiết bị lưu trữ (như ổ cứng, USB, phân vùng) vào hệ thống file, cho phép truy cập nội dung của nó tại một thư mục cụ thể.
+
+- `umount`: là lệnh dùng để tháo thiết bị lưu trữ ra khỏi hệ thống file một cách an toàn.
+
 ```bash
 lsblk
 mount /dev/sdb1 /mnt/test
@@ -356,12 +433,24 @@ umount /mnt/test
 ```
 
 ##  Symbolic & Hard Link
+## Symbolic & Hard Link là gì?
+
+- **Symbolic Link (Symlink)**: là một loại file đặc biệt trỏ đến một file hoặc thư mục khác. Nó giống như một “lối tắt”, có thể trỏ đến file trên một phân vùng khác.
+
+- **Hard Link**: là một bản sao tham chiếu trực tiếp đến cùng inode của file gốc. Khi file gốc bị xóa, hard link vẫn giữ nguyên nội dung vì chúng dùng chung inode.
+
+Cả hai đều được dùng để tạo liên kết tới file, nhưng hoạt động và tính chất khác nhau.
+
 ```bash
 ln -s file link_sym
 ln file link_hard
 ```
 
 ##  Ls Command
+## Ls Command là gì?
+
+Ls là một lệnh trong Linux/Unix dùng để liệt kê các file và thư mục trong một thư mục cụ thể. Nó hỗ trợ nhiều tùy chọn để hiển thị chi tiết quyền, kích thước, thời gian sửa đổi, file ẩn và sắp xếp theo tiêu chí khác nhau.
+
 ```bash
 ls
 ls -l
@@ -369,13 +458,22 @@ ls -a
 ```
 
 ##  Ps Command
+## Ps Command là gì?
+
+Ps (Process Status) là một lệnh trong Linux/Unix dùng để hiển thị thông tin về các tiến trình (process) đang chạy trên hệ thống. Nó cho phép người dùng theo dõi PID, trạng thái, người sở hữu, thời gian CPU, và các thông số khác của tiến trình.
+
 ```bash
 ps aux
 top
 kill PID
 ```
 
-##  Top Command - Giải thích:
+##  Top Command 
+### Top Command là gì?
+
+Top là một lệnh trong Linux/Unix dùng để hiển thị thời gian thực (real-time) thông tin về các tiến trình đang chạy, mức sử dụng CPU, RAM, và các tài nguyên hệ thống khác. Nó giúp người dùng theo dõi hiệu suất hệ thống và quản lý tiến trình một cách hiệu quả.
+
+- Giải thích:
 
 - Load average: trung bình tải hệ thống
 - us: user CPU
@@ -390,6 +488,10 @@ kill PID
 - sleeping: tiến trình đang chờ
 
 ##  Free Command
+### Free Command là gì?
+
+Free là một lệnh trong Linux/Unix dùng để hiển thị thông tin về bộ nhớ hệ thống, bao gồm bộ nhớ đã sử dụng, còn trống, bộ nhớ đệm (buffer/cache), và swap. Đây là công cụ hữu ích để theo dõi tình trạng sử dụng RAM của hệ thống.
+
 ```bash
 free -h
 ```
@@ -398,6 +500,10 @@ free -h
 - buff/cache: bộ nhớ cache
 
 ##  Df Command
+### Df Command là gì?
+
+Df (Disk Free) là một lệnh trong Linux/Unix dùng để hiển thị thông tin
+
 ```bash
 df -h
 ```
