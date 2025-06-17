@@ -220,6 +220,10 @@ scp -r folder/ user@host:/path
 ---
 
 ##  Rsync Command
+### Rsync Command là gì?
+
+Rsync (Remote Sync) là một lệnh trong Linux/Unix dùng để đồng bộ và sao chép file hoặc thư mục giữa máy cục bộ và máy chủ từ xa, hoặc giữa hai vị trí trên cùng một hệ thống, với khả năng chỉ truyền phần thay đổi của dữ liệu, giúp tiết kiệm băng thông và thời gian.
+
 - Rsync file:
 ```bash
 rsync -av file.txt user@host:/path
