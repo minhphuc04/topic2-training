@@ -182,7 +182,7 @@ dig vietnix.vn
 hping3 vietnix.vn -S -p 80
 ```
 **Giải thích:**
-- `ttl=`: Time To Live – số hop còn lại
+- `ttl=`: Time To Live – là một tham số quan trọng trong mạng máy tính, xác định khoảng thời gian hoặc số lần truyền mà dữ liệu được phép tồn tại trước khi bị xóa
 - `time=`: thời gian phản hồi (ping delay)
 
 ---
