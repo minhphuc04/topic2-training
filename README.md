@@ -345,21 +345,80 @@ traceroute to vietnix.vn (103.90.224.90), 30 hops max, 60 byte packets
 
 Lệnh `traceroute` giúp theo dõi hành trình gói tin, xác định vị trí mạng bị chậm hoặc gián đoạn, rất hữu ích để kiểm tra sự cố kết nối và định tuyến mạng.
 
-##  Netstat Command
+## Netstat Command
+
 ### Netstat Command là gì?
 
 Netstat (Network Statistics) là một lệnh trong Linux/Unix dùng để hiển thị các kết nối mạng, bảng định tuyến, thống kê giao thức, các cổng đang lắng nghe (listening ports), và các tiến trình sử dụng mạng.
 
-Lệnh này thường được sử dụng để kiểm tra tình trạng mạng và phân tích các kết nối TCP/UDP đang hoạt động.
+Lệnh này thường được sử dụng để kiểm tra tình trạng kết nối TCP/UDP, phát hiện dịch vụ đang hoạt động, hoặc phân tích sự cố mạng.
+
+---
+
+### Các tùy chọn thường dùng:
 
 ```bash
 netstat -tuln
-netstat -n
-netstat -n -p
-netstat -tunlp
-netstat -t       # chỉ TCP
-netstat -u       # chỉ UDP
 ```
+ Hiển thị tất cả các cổng TCP và UDP đang ở trạng thái **LISTEN**, với:
+- `-t`: hiển thị các kết nối TCP.
+- `-u`: hiển thị các kết nối UDP.
+- `-l`: chỉ các socket đang lắng nghe (LISTEN).
+- `-n`: hiển thị địa chỉ và cổng dạng số (không phân giải tên).
+
+---
+
+```bash
+netstat -n
+```
+ Không phân giải tên miền và port (hostname/service name), giúp kết quả hiển thị nhanh và rõ ràng hơn với địa chỉ IP và số port thực tế.
+
+---
+
+```bash
+netstat -n -p
+```
+ Hiển thị thêm **PID và tên tiến trình** sử dụng kết nối. Cần quyền `sudo` để xem chi tiết tiến trình của user khác.
+- `-p`: show PID/process gắn với kết nối.
+
+---
+
+```bash
+netstat -tunlp
+```
+ Lệnh kết hợp đầy đủ để:
+- Hiển thị TCP và UDP (`-t -u`)
+- Chỉ các kết nối đang **LISTEN** (`-l`)
+- Không resolve tên (`-n`)
+- Hiển thị tiến trình (`-p`)
+
+Rất hữu ích để xem các dịch vụ đang mở cổng.
+
+---
+
+```bash
+netstat -t
+```
+ Chỉ hiển thị các kết nối **TCP**.
+
+---
+
+```bash
+netstat -u
+```
+ Chỉ hiển thị các kết nối **UDP**.
+
+---
+
+###  Ví dụ thực tế:
+```bash
+sudo netstat -tulnp
+```
+ Xem toàn bộ các cổng đang mở (TCP/UDP), trạng thái LISTEN, và process nào đang chiếm giữ chúng.
+
+---
+
+
 
 ##  Sort Command
 ### Sort Command là gì?
