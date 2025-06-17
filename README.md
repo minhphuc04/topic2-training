@@ -188,6 +188,10 @@ hping3 vietnix.vn -S -p 80
 ---
 
 ##  SSH Command
+### SSH Command là gì?
+
+SSH (Secure Shell) là một lệnh trong Linux/Unix dùng để thiết lập kết nối bảo mật đến một máy chủ từ xa thông qua giao thức SSH. Nó cho phép người dùng điều khiển máy chủ từ xa, truyền file, và thực hiện các tác vụ quản trị từ xa một cách an toàn.
+
 - Dùng password:
 ```bash
 ssh user@host
