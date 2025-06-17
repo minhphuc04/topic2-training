@@ -131,7 +131,8 @@ Domain là tên miền đại diện cho một địa chỉ IP trên Internet, g
 Là miền con của một domain chính, ví dụ: `blog.example.com` là subdomain của `example.com`
 
 ### Virtual Hosts là gì?
-Cơ chế cho phép 1 web server phục vụ nhiều domain khác nhau trên cùng 1 IP.
+Là một tính năng trong web server và cũng là một phương thức lưu trữ, cho phép nhiều trang web hoặc tên miền hoạt động trên cùng một máy chủ vật lý hoặc một địa chỉ IP duy nhất 
+viết dưới dạng markdown giúp
 
 ---
 
