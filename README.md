@@ -587,26 +587,66 @@ cp file.txt /dest/
 cp -r folder/ /dest/
 mv file.txt /dest/
 ```
+## Cut Command
 
-##  Cut Command
 ### Cut Command là gì?
 
 Cut là một lệnh trong Linux/Unix dùng để trích xuất các phần cụ thể của dòng văn bản, dựa trên vị trí ký tự hoặc trường (field) được phân tách bởi dấu phân cách. Nó thường được sử dụng để lấy cột dữ liệu từ file văn bản hoặc đầu ra của lệnh khác.
 
+---
+
+
+####  Cắt ký tự thứ 3 trong chuỗi:
 ```bash
 echo "123456" | cut -c3
+```
+ Kết quả: `3`
+
+---
+
+####  Cắt từ ký tự thứ 3 trở về sau:
+```bash
 echo "abcdef" | cut -c3-
+```
+ Kết quả: `cdef`
+
+---
+
+####  Cắt từ ký tự đầu đến ký tự thứ 3:
+```bash
 echo "abcdef" | cut -c-3
 ```
+ Kết quả: `abc`
 
-##  Dig Command
+
+## Dig Command
+
 ### Dig Command là gì?
 
 Dig (Domain Information Groper) là một công cụ dòng lệnh trong Linux/Unix dùng để truy vấn hệ thống DNS. Nó cho phép kiểm tra bản ghi DNS (như A, MX, NS, TXT...) của tên miền, hiển thị chi tiết quá trình phân giải và thời gian phản hồi từ máy chủ DNS.
 
+---
+
+
+####  Kiểm tra bản ghi A (địa chỉ IP) của domain:
 ```bash
 dig vietnix.vn A
+```
+Kết quả truy vấn bản ghi A (IPv4) cho tên miền `vietnix.vn`.
+
+---
+
+####  Kiểm tra bản ghi MX (Mail Exchange) với DNS cụ thể:
+```bash
 dig @8.8.8.8 vietnix.vn MX
+```
+ Truy vấn bản ghi MX từ máy chủ DNS `8.8.8.8` (Google Public DNS).
+
+---
+
+####  Truy vấn bản ghi NS (Name Server):
+```bash
+dig vietnix.vn NS
 ```
 
 ##  Tar/Zip/Unzip Command
@@ -619,7 +659,7 @@ dig @8.8.8.8 vietnix.vn MX
 - `unzip`: là lệnh dùng để giải nén các file `.zip` đã được tạo trước đó.
 
 ```bash
-tar -czvf file.tar.gz folder/
+tar -czvf file.tar.gz folder/    
 tar -xzvf file.tar.gz
 zip -r file.zip folder/
 unzip file.zip
