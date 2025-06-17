@@ -8,10 +8,33 @@
 ### SSL là gì?
 SSL (Secure Sockets Layer) là một giao thức mã hóa được sử dụng để bảo vệ việc truyền dữ liệu giữa máy chủ (server) và trình duyệt (client). Hiện nay, SSL đã được thay thế bằng TLS (Transport Layer Security), nhưng thuật ngữ "SSL" vẫn được dùng phổ biến.
 
-### Có bao nhiêu cách xác thực SSL?
-1. **Domain Validation (DV)**
-2. **Organization Validation (OV)**
-3. **Extended Validation (EV)**
+
+## Các cách xác thực SSL
+
+Trong SSL/TLS, có hai cách phân loại phổ biến về cơ chế xác thực:
+
+---
+
+###  1. Theo **loại chứng chỉ SSL** (dựa trên mức độ xác thực danh tính)
+
+| Loại | Mức độ xác thực | Dùng cho |
+|------|------------------|----------|
+|  **DV (Domain Validation)** | Xác thực tên miền (domain) đơn giản | Website cá nhân, blog |
+|  **OV (Organization Validation)** | Xác thực domain + tổ chức | Doanh nghiệp nhỏ |
+|  **EV (Extended Validation)** | Xác thực mở rộng, yêu cầu giấy tờ pháp lý | Ngân hàng, thương mại điện tử |
+
+ Đây là cách phân loại phổ biến nhất khi nói về "các cách xác thực SSL".
+
+---
+
+###  2. Theo **kiểu kết nối SSL/TLS** giữa client và server
+
+| Kiểu xác thực | Mô tả |
+|---------------|-------|
+|  **One-way SSL** | Client xác thực server thông qua chứng chỉ SSL (dạng HTTPS thông thường) |
+|  **Mutual SSL (Two-way SSL)** | Cả client và server đều xác thực lẫn nhau bằng chứng chỉ số |
+
+---
 
 ### CSR file dùng làm gì trong quá trình tạo SSL?
 CSR (Certificate Signing Request) là tệp chứa thông tin domain và public key. CSR được gửi lên CA (Certificate Authority) để yêu cầu cấp SSL.
