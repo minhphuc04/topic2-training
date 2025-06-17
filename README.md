@@ -910,12 +910,24 @@ free -h
 - free: còn trống
 - buff/cache: bộ nhớ cache
 
-##  Df Command
+## Df Command
+
 ### Df Command là gì?
 
-Df (Disk Free) là một lệnh trong Linux/Unix dùng để hiển thị thông tin
+`df` (Disk Free) là một lệnh trong Linux/Unix dùng để hiển thị thông tin về dung lượng sử dụng và còn trống của các phân vùng đĩa.
 
+---
+
+###  Xem dung lượng các phân vùng đĩa theo cách dễ đọc:
 ```bash
 df -h
 ```
-- `/` là phân vùng gốc chứa hệ điều hành và file hệ thống
+- `-h`: hiển thị dung lượng theo đơn vị dễ đọc (KB, MB, GB)
+
+---
+
+###  Phân vùng `/` là gì?
+
+- `/` là **phân vùng gốc** (root partition) trong Linux.
+- Đây là nơi chứa toàn bộ hệ thống tệp, thư mục hệ điều hành, chương trình, cấu hình...
+- Hệ điều hành Linux **bắt buộc phải có** phân vùng `/`.
