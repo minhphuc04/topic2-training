@@ -272,9 +272,9 @@ echo "replace" > file.txt        # ghi đè
 Tail và Head là hai lệnh trong Linux/Unix dùng để hiển thị nội dung dòng đầu tiên hoặc dòng cuối cùng của một file văn bản.
 
 ```bash
-tail file.txt
-tail -f file.txt
-head file.txt
+tail file.txt                    # hiển thị 10 dòng cuối của file
+tail -f file.txt                 # hiển thị nội dung cuối file theo thời gian thực
+head file.txt                    # hiển thị 10 dòng đầu của file
 ```
 
 ##  Sed Command
