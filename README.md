@@ -210,7 +210,7 @@ hping3 vietnix.vn -S -p 80
 
 ---
 
-# Kiểm tra kết nối đến domain vietnix.vn bằng ping và hping3
+## Kiểm tra kết nối đến domain vietnix.vn bằng ping và hping3
 
 ## 1. Dùng `ping` để kiểm tra kết nối đến `vietnix.vn`
 
