@@ -240,6 +240,9 @@ rsync -av --progress --delete source/ dest/
 ---
 
 ##  Cat Command
+### Cat Command là gì?
+
+Cat (viết tắt của “concatenate”) là một lệnh trong Linux/Unix dùng để hiển thị nội dung của file, nối nhiều file lại với nhau, hoặc chuyển nội dung file vào đầu ra (output).
 ```bash
 cat file.txt               # Hiển thị nội dung
 sed -n 'n{p;q}' file.txt   # Dòng thứ n
