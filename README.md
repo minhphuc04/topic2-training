@@ -663,20 +663,43 @@ tar -czvf file.tar.gz folder/
 tar -xzvf file.tar.gz
 zip -r file.zip folder/
 unzip file.zip
-```
+```  
 
-##  Mount/Umount Command
+
+## Mount/Umount Command
+
 ### Mount/Umount Command là gì?
 
 - `mount`: là lệnh trong Linux/Unix dùng để gắn một thiết bị lưu trữ (như ổ cứng, USB, phân vùng) vào hệ thống file, cho phép truy cập nội dung của nó tại một thư mục cụ thể.
 
 - `umount`: là lệnh dùng để tháo thiết bị lưu trữ ra khỏi hệ thống file một cách an toàn.
 
+---
+
+
+####  Kiểm tra có bao nhiêu ổ cứng trên máy chủ:
 ```bash
 lsblk
-mount /dev/sdb1 /mnt/test
-umount /mnt/test
 ```
+Hiển thị danh sách các thiết bị block (ổ cứng, phân vùng...).
+
+---
+
+####  Mount ổ cứng `/dev/sdb1` (~5GB) vào thư mục `/mnt/test`:
+```bash
+sudo mount /dev/sdb1 /mnt/test
+```
+ Sau lệnh này, bạn có thể truy cập nội dung ổ sdb1 trong thư mục `/mnt/test`.
+
+---
+
+####  Umount ổ cứng khỏi hệ thống:
+```bash
+sudo umount /mnt/test
+```
+ Tháo gắn kết một cách an toàn để ngắt kết nối với ổ đĩa.
+
+---
 
 ##  Symbolic & Hard Link
 ## Symbolic & Hard Link là gì?
@@ -692,27 +715,94 @@ ln -s file link_sym
 ln file link_hard
 ```
 
-##  Ls Command
-## Ls Command là gì?
 
-Ls là một lệnh trong Linux/Unix dùng để liệt kê các file và thư mục trong một thư mục cụ thể. Nó hỗ trợ nhiều tùy chọn để hiển thị chi tiết quyền, kích thước, thời gian sửa đổi, file ẩn và sắp xếp theo tiêu chí khác nhau.
+## Ls Command
 
+### Ls Command là gì?
+
+`ls` là một lệnh trong Linux/Unix dùng để liệt kê các file và thư mục trong một thư mục cụ thể. Nó hỗ trợ nhiều tùy chọn để hiển thị chi tiết quyền, kích thước, thời gian sửa đổi, file ẩn và sắp xếp theo tiêu chí khác nhau.
+
+---
+
+####  Liệt kê danh sách file và thư mục:
 ```bash
 ls
+```
+ Hiển thị các file và thư mục trong thư mục hiện tại.
+
+---
+
+####  Liệt kê kèm thuộc tính (chi tiết):
+```bash
 ls -l
+```
+ Hiển thị quyền truy cập, owner, kích thước, ngày giờ sửa đổi và tên file.
+
+---
+
+####  Hiển thị cả file ẩn:
+```bash
 ls -a
 ```
+ Bao gồm cả các file ẩn (bắt đầu bằng dấu chấm `.`), ví dụ: `.bashrc`, `.config`.
 
-##  Ps Command
-## Ps Command là gì?
 
-Ps (Process Status) là một lệnh trong Linux/Unix dùng để hiển thị thông tin về các tiến trình (process) đang chạy trên hệ thống. Nó cho phép người dùng theo dõi PID, trạng thái, người sở hữu, thời gian CPU, và các thông số khác của tiến trình.
+## Ps Command
 
+### Ps Command là gì?
+
+`ps` (Process Status) là một lệnh trong Linux/Unix dùng để hiển thị thông tin về các tiến trình (process) đang chạy trên hệ thống. Nó cho phép người dùng theo dõi PID, trạng thái, người sở hữu, thời gian CPU và nhiều thông số khác của tiến trình.
+
+---
+
+####  Hiển thị tất cả các tiến trình hệ thống:
 ```bash
 ps aux
-top
-kill PID
 ```
+- `a`: hiển thị tiến trình của tất cả user 
+- `u`: hiển thị theo định dạng user-friendly 
+- `x`: hiển thị các tiến trình không gắn với terminal
+
+---
+
+####  Hiển thị tiến trình theo thời gian thực:
+```bash
+top
+```
+- Công cụ giám sát tài nguyên theo thời gian thực, hiển thị CPU, RAM, tiến trình...
+
+---
+
+####  Kết thúc tiến trình bằng PID:
+```bash
+kill <PID>
+```
+- Gửi tín hiệu dừng đến tiến trình có `PID` cụ thể. 
+Ví dụ:
+```bash
+kill 1234
+```
+
+---
+
+###  Kiểm tra tài nguyên CPU của một vài process
+
+####  Hiển thị tiến trình dùng CPU nhiều nhất:
+```bash
+ps -eo pid,comm,%cpu,%mem --sort=-%cpu | head
+```
+
+####  Theo dõi process cụ thể (ví dụ: firefox):
+```bash
+ps -C firefox -o pid,cmd,%cpu,%mem
+```
+
+####  Dùng top để theo dõi process cụ thể (ví dụ: mysqld):
+```bash
+top -p $(pidof mysqld)
+```
+
+📎 Ghi chú: Có thể dùng `htop` nếu muốn giao diện dễ nhìn hơn.
 
 ##  Top Command 
 ### Top Command là gì?
