@@ -445,27 +445,56 @@ sort -r file.txt
 
 ---
 
-##  Uniq Command
+## Uniq Command
+
 ### Uniq Command là gì?
 
-Uniq là một lệnh trong Linux/Unix dùng để lọc ra các dòng trùng lặp liên tiếp trong một file hoặc đầu vào. Nó thường được dùng kết hợp với `sort` để loại bỏ hoàn toàn các dòng trùng nhau và có thể đếm số lần xuất hiện của mỗi dòng.
+Uniq là một lệnh trong Linux/Unix dùng để lọc ra các dòng trùng lặp liên tiếp trong một file hoặc đầu vào. Để hoạt động chính xác, file cần được sắp xếp trước bằng `sort`. Lệnh này thường dùng để loại bỏ dòng lặp hoặc thống kê số lần xuất hiện của mỗi dòng.
 
+---
+
+
+####  Lọc ra các dòng lặp lại (giữ lại dòng duy nhất):
 ```bash
 uniq file.txt
+```
+ Loại bỏ các dòng bị lặp liên tiếp, chỉ giữ lại một bản.
+
+---
+
+####  Lọc ra các dòng lặp lại và đếm số lần xuất hiện:
+```bash
 uniq -c file.txt
 ```
+ Hiển thị số lần mỗi dòng lặp lại, với số đếm ở đầu dòng.
+## Wc Command
 
-##  Wc Command
 ### Wc Command là gì?
 
 Wc (Word Count) là một lệnh trong Linux/Unix dùng để đếm số dòng, số từ và số ký tự trong một file hoặc đầu vào. Đây là công cụ hữu ích để thống kê nhanh nội dung văn bản.
 
+---
+
+
+####  Đếm số dòng trong file:
 ```bash
 wc -l file.txt
+```
+ Hiển thị số **dòng** trong `file.txt`.
+
+---
+
+####  Đếm số ký tự trong file:
+```bash
 wc -m file.txt
 ```
+ Hiển thị tổng số **ký tự** (characters) trong `file.txt`.
 
-##  Chmod, Chown, Chattr
+---
+
+
+## Chmod, Chown, Chattr
+
 ### Chmod, Chown, Chattr là gì?
 
 - `chmod`: là lệnh dùng để thay đổi quyền truy cập (read, write, execute) của file hoặc thư mục trong Linux/Unix.
@@ -474,12 +503,36 @@ wc -m file.txt
 
 - `chattr`: là lệnh dùng để thay đổi thuộc tính mở rộng (extended attributes) của file, ví dụ như đặt file ở chế độ không thể chỉnh sửa (immutable).
 
+---
+
+
+#### Phân quyền bằng số:
 ```bash
 chmod 755 file
-chmod u+x script.sh
-chown user:group file
-chattr +i file
 ```
+- `7`: quyền đầy đủ (read + write + execute)
+- `5`: quyền read + execute
+- Dạng số tương ứng với quyền của **owner / group / others**
+
+---
+
+####  Phân quyền bằng chữ:
+```bash
+chmod u+x script.sh
+```
+- `u`: user (chủ sở hữu)
+- `+x`: thêm quyền thực thi (execute)
+- Tương tự có `g` (group), `o` (others), `a` (all)
+
+---
+
+####  Thay đổi chủ sở hữu:
+```bash
+chown user:group file
+```
+- Gán file cho người dùng `user` và nhóm `group`.
+
+---
 
 ##  Find Command
 ### Find Command là gì?
