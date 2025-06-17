@@ -169,8 +169,17 @@ DNS (Domain Name System) là hệ thống phân giải tên miền thành địa
 
 ### Cách phân giải địa chỉ DNS:
 ```bash
+# 'ping' – kiểm tra kết nối và phân giải tên miền
 ping vietnix.vn
-hping3 vietnix.vn
+
+# nslookup – Truy vấn bản ghi DNS cơ bản
+nslookup vietnix.vn
+
+# dig – Truy vấn DNS nâng cao (chi tiết hơn nslookup)
+dig vietnix.vn
+
+# hping3 – Gửi gói tin có kiểm soát, có thể dùng để kiểm tra phản hồi IP
+hping3 vietnix.vn -S -p 80
 ```
 **Giải thích:**
 - `ttl=`: Time To Live – số hop còn lại
