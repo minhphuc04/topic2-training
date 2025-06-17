@@ -212,7 +212,7 @@ hping3 vietnix.vn -S -p 80
 
 ## Kiểm tra kết nối đến domain vietnix.vn bằng ping và hping3
 
-## 1. Dùng `ping` để kiểm tra kết nối đến `vietnix.vn`
+###  Dùng `ping` để kiểm tra kết nối đến `vietnix.vn`
 
 ```bash
 ping vietnix.vn
@@ -238,7 +238,7 @@ rtt min/avg/max/mdev = 12.366/35.375/94.994/25.534 ms
 
 ---
 
-## 2. Dùng `hping3` để kiểm tra `vietnix.vn`
+### Dùng `hping3` để kiểm tra `vietnix.vn`
 
 ```bash
 sudo hping3 vietnix.vn
