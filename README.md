@@ -243,18 +243,70 @@ rsync -av --progress --delete source/ dest/
 
 ---
 
-##  Cat Command
+## Cat Command
+
 ### Cat Command là gì?
 
-Cat (viết tắt của “concatenate”) là một lệnh trong Linux/Unix dùng để hiển thị nội dung của file, nối nhiều file lại với nhau, hoặc chuyển nội dung file vào đầu ra (output).
+`cat` (viết tắt của “concatenate”) là một lệnh trong Linux/Unix dùng để hiển thị nội dung của file, nối nhiều file lại với nhau, hoặc chuyển nội dung file vào đầu ra (output).
+
+---
+
+####  Hiển thị nội dung file:
 ```bash
-cat file.txt               # Hiển thị nội dung
-sed -n 'n{p;q}' file.txt   # Dòng thứ n
+cat file.txt
+```
+
+---
+
+####  In dòng thứ `n` trong file (dùng `sed`):
+```bash
+sed -n 'n{p;q}' file.txt
+```
+- `n`: số dòng cần in (thay bằng số cụ thể, ví dụ `5`)
+- `p`: in dòng
+- `q`: thoát ngay sau khi in
+
+ Ngoài việc in dòng, `sed` còn có nhiều chức năng mạnh khác:
+
+---
+
+###  Các tác dụng khác của `sed`:
+
+####  Thay thế chuỗi đầu tiên trong dòng:
+```bash
+sed 's/old/new/' file.txt
+```
+
+####  Thay thế toàn bộ chuỗi trong mỗi dòng:
+```bash
+sed 's/old/new/g' file.txt
+```
+
+####  Xoá dòng chứa từ khoá:
+```bash
+sed '/pattern/d' file.txt
+```
+
+####  Chèn dòng mới trước dòng khớp:
+```bash
+sed '/pattern/i This is a new line' file.txt
+```
+
+####  Xử lý văn bản từ pipeline:
+```bash
+echo "hello world" | sed 's/world/Linux/'
+```
+
+---
+
+####  Nhập nhiều dòng vào file bằng EOF:
+```bash
 cat <<EOF > file.txt
 line1
 line2
 EOF
 ```
+- Tạo file mới và ghi nội dung nhiều dòng từ input tiêu chuẩn (stdin) cho đến khi gặp `EOF`.
 
 ##  Echo Command
 ### Echo Command là gì?
