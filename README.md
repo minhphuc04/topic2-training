@@ -420,16 +420,30 @@ sudo netstat -tulnp
 
 
 
-##  Sort Command
+
+## Sort Command
+
 ### Sort Command là gì?
 
 Sort là một lệnh trong Linux/Unix dùng để sắp xếp các dòng văn bản trong một file hoặc đầu vào theo thứ tự tăng dần hoặc giảm dần. Nó hỗ trợ sắp xếp theo bảng chữ cái, theo số, theo cột và nhiều kiểu tùy chỉnh khác.
 
+---
+
+####  Sắp xếp theo thứ tự tăng dần (mặc định):
 ```bash
 sort file.txt
-sort -r file.txt
-sort -k2 file.txt
 ```
+ Sắp xếp các dòng trong `file.txt` theo thứ tự bảng chữ cái (alphabetical order).
+
+---
+
+####  Sắp xếp theo thứ tự giảm dần:
+```bash
+sort -r file.txt
+```
+ `-r` (reverse): đảo ngược kết quả, hiển thị từ Z đến A hoặc số lớn đến bé.
+
+---
 
 ##  Uniq Command
 ### Uniq Command là gì?
