@@ -204,6 +204,10 @@ ssh -p 2222 user@host
 ---
 
 ##  SCP Command
+### SCP Command là gì?
+
+SCP (Secure Copy Protocol) là một lệnh dòng lệnh trong Linux/Unix dùng để sao chép file hoặc thư mục giữa máy tính cục bộ và máy chủ từ xa, hoặc giữa hai máy chủ từ xa, thông qua kết nối SSH.
+
 - SCP 1 file:
 ```bash
 scp file.txt user@host:/path
