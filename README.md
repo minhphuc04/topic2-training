@@ -40,11 +40,92 @@ openssl pkcs12 -export -out certificate.pfx -inkey private.key -in certificate.c
 ### Domain là gì?
 Domain là tên miền đại diện cho một địa chỉ IP trên Internet, giúp người dùng dễ nhớ và truy cập.
 
-### Các trạng thái của domain:
-- **Available** – chưa được đăng ký
-- **Registered** – đã đăng ký
-- **Expired** – hết hạn
-- **Pending Delete** – sắp bị xóa
+
+# Trạng thái tên miền và hướng xử lý
+
+## Trạng thái chung
+
+### OK / active
+- Ý nghĩa: Domain hoạt động bình thường.
+- Nên làm: Thêm các trạng thái bảo vệ như `clientTransferProhibited`, `clientDeleteProhibited`, `clientUpdateProhibited`.
+
+### addPeriod
+- Ý nghĩa: Vừa được đăng ký, đang trong giai đoạn đầu.
+- Nên làm: Không cần xử lý.
+
+### autoRenewPeriod
+- Ý nghĩa: Tên miền tự động gia hạn.
+- Nên làm: Nếu không muốn, liên hệ nhà đăng ký để hủy.
+
+### inactive
+- Ý nghĩa: Chưa cấu hình Name Server.
+- Nên làm: Kiểm tra DNS, liên hệ nhà đăng ký.
+
+### pendingCreate
+- Ý nghĩa: Đang xử lý đăng ký tên miền.
+- Nên làm: Chờ hoàn tất.
+
+### pendingDelete
+- Ý nghĩa: Sắp bị xóa.
+- Nên làm: Chờ tên miền được giải phóng để đăng ký lại.
+
+### pendingRenew
+- Ý nghĩa: Đang chờ gia hạn.
+- Nên làm: Đợi xử lý xong hoặc liên hệ xác nhận.
+
+### pendingRestore
+- Ý nghĩa: Đang khôi phục tên miền đã hết hạn.
+- Nên làm: Theo dõi, nếu về `redemptionPeriod` thì liên hệ khẩn.
+
+### pendingTransfer
+- Ý nghĩa: Đang chuyển nhà đăng ký.
+- Nên làm: Không yêu cầu chuyển thì liên hệ hủy và khóa lại (`clientTransferProhibited`).
+
+### pendingUpdate
+- Ý nghĩa: Đang cập nhật thông tin.
+- Nên làm: Nếu không yêu cầu, hãy kiểm tra lại.
+
+### redemptionPeriod
+- Ý nghĩa: Domain hết hạn, cần chuộc lại (có phí cao).
+- Nên làm: Liên hệ nhà đăng ký ngay để chuộc lại.
+
+### renewPeriod
+- Ý nghĩa: Vừa gia hạn, đang chờ xác nhận.
+- Nên làm: Chờ xử lý.
+
+### serverDeleteProhibited
+- Ý nghĩa: Không thể xóa domain (thường do tranh chấp).
+- Nên làm: Liên hệ nhà đăng ký để gỡ bỏ.
+
+### serverHold
+- Ý nghĩa: Không được kích hoạt trong DNS.
+- Nên làm: Liên hệ nhà đăng ký kiểm tra lý do.
+
+### serverRenewProhibited
+- Ý nghĩa: Không thể gia hạn.
+- Nên làm: Liên hệ nhà đăng ký, xử lý mất thời gian hơn client*.
+
+### serverTransferProhibited
+- Ý nghĩa: Không thể transfer.
+- Nên làm: Liên hệ nhà đăng ký.
+
+### serverUpdateProhibited
+- Ý nghĩa: Không thể cập nhật thông tin.
+- Nên làm: Liên hệ nhà đăng ký.
+
+### transferPeriod
+- Ý nghĩa: Sau khi chuyển tên miền, chờ xác nhận hoàn tất.
+- Nên làm: Nếu không chủ động chuyển thì kiểm tra ngay.
+
+## Trạng thái tại Nhà đăng ký (Registrar)
+
+| Trạng thái | Ý nghĩa | Hành động |
+|-----------|---------|-----------|
+| clientDeleteProhibited | Cấm xóa domain | Giúp bảo vệ domain khỏi bị xóa trái phép |
+| clientHold | Tạm dừng DNS | Liên hệ nhà đăng ký để xử lý |
+| clientRenewProhibited | Cấm gia hạn | Thường do tranh chấp, cần liên hệ để gỡ bỏ |
+| clientTransferProhibited | Cấm chuyển đổi NĐK | Bảo vệ domain khỏi bị chiếm đoạt |
+| clientUpdateProhibited | Cấm cập nhật thông tin | Ngăn thay đổi trái phép, liên hệ nhà đăng ký nếu cần gỡ |
 
 ### Subdomain là gì?
 Là miền con của một domain chính, ví dụ: `blog.example.com` là subdomain của `example.com`
