@@ -161,7 +161,8 @@ DNS (Domain Name System) là hệ thống phân giải tên miền thành địa
 - PTR: ánh xạ ngược
 - TXT: chứa thông tin xác thực (SPF, DKIM...)
 
-### Nguyên tắc làm việc của DNS: DNS (Domain Name System) hoạt động theo nguyên tắc phân giải tên miền (domain name) thành địa chỉ IP mà máy tính có thể hiểu và kết nối được.
+### Nguyên tắc làm việc của DNS: 
+- DNS (Domain Name System) hoạt động theo nguyên tắc phân giải tên miền (domain name) thành địa chỉ IP mà máy tính có thể hiểu và kết nối được.
 1. Trình duyệt gửi truy vấn
 2. Hệ thống DNS tìm bản ghi tương ứng
 3. Trả về IP để trình duyệt kết nối
