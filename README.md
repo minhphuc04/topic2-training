@@ -534,18 +534,47 @@ chown user:group file
 
 ---
 
-##  Find Command
+
+## Find Command
+
 ### Find Command là gì?
 
 Find là một lệnh trong Linux/Unix dùng để tìm kiếm file và thư mục theo tên, loại, thời gian sửa đổi, quyền, kích thước hoặc các tiêu chí khác. Nó hỗ trợ tìm kiếm đệ quy trong thư mục và có thể thực hiện hành động trên các file tìm được.
 
+---
+
+
+####  Tìm tất cả các file có đuôi `.log`:
 ```bash
 find . -name "*.log"
+```
+ Tìm tất cả các file kết thúc bằng `.log` từ thư mục hiện tại trở xuống.
+
+---
+
+####  Tìm các thư mục (folder) có tên là `abc`:
+```bash
 find . -type d -name abc
+```
+ `-type d`: chỉ tìm thư mục.
+
+---
+
+####  Tìm các file có tên là `abc`:
+```bash
 find . -type f -name abc
+```
+ `-type f`: chỉ tìm file thường (không bao gồm thư mục).
+
+---
+
+####  Tìm các file có tên là `abc` và gán quyền chỉ đọc (read-only):
+```bash
 find . -type f -name abc -exec chmod 444 {} \;
 ```
+ `-exec ... {} \;`: thực thi lệnh `chmod 444` cho từng file tìm được.
 
+- `444`: chỉ cho phép đọc (read-only) với tất cả user.
 ##  Cp/Mv Command
 ### Cp/Mv Command là gì?
 
