@@ -1,4 +1,4 @@
-
+  
 #  Kiến thức tổng hợp về SSL, Domain, DNS, và các lệnh Linux
 
 ---
@@ -287,17 +287,63 @@ sed -i 's/old/new/g' file.txt
 # Thay tất cả các chuỗi "old" thành "new" trong mỗi dòng (g là global).
 ```
 
-##  Traceroute/Tracert
+
+## Traceroute/Tracert
+
 ### Traceroute/Tracert là gì?
 
 Traceroute (trên Linux/macOS) và Tracert (trên Windows) là công cụ dòng lệnh dùng để theo dõi đường đi của gói tin từ máy tính của bạn đến một địa chỉ đích (IP hoặc domain), thông qua các router trung gian.
 
 Nó giúp xác định số lượng “hops” (bước nhảy) và vị trí xảy ra độ trễ hoặc sự cố trong quá trình truyền dữ liệu qua mạng.
 
+---
 
+###  Ví dụ sử dụng:
 ```bash
 traceroute vietnix.vn
 ```
+
+Kết quả khi dùng lệnh:
+```
+traceroute to vietnix.vn (103.90.224.90), 30 hops max, 60 byte packets
+ 1  _gateway (192.168.0.1)            69.184 ms  69.007 ms  69.474 ms
+ 2  localhost (27.71.251.149)         70.057 ms  70.023 ms  69.994 ms
+ 3  10.255.39.243                     71.030 ms 10.255.39.241 70.061 ms 10.255.39.243 70.972 ms
+ 4  * * *
+ 5  localhost (27.68.236.46)          69.911 ms 27.68.236.242 69.882 ms 27.68.236.240 69.853 ms
+ 6  static.vnpt.vn (113.171.46.201)   98.884 ms 203.113.187.98 85.894 ms 113.171.46.201 85.835 ms
+ 7  static.vnpt.vn (113.171.46.226)   71.337 ms 113.171.7.205 71.289 ms 113.171.46.226 72.100 ms
+ 8  static.vnpt.vn (113.171.45.38)    71.222 ms 113.171.143.46 71.194 ms 72.011 ms
+ 9  * 113.171.49.2                    71.110 ms 113.171.49.182 98.617 ms
+10  * 103.90.224.90                   71.024 ms *
+```
+
+---
+
+###  Giải thích từng thành phần:
+
+| Trường                    | Ý nghĩa                                                                 |
+|---------------------------|-------------------------------------------------------------------------|
+| `1`, `2`, ...             | Số thứ tự hop – router mà gói tin đi qua                               |
+| `192.168.0.1`, ...        | IP hoặc hostname của router tại mỗi bước                                |
+| `69.184 ms`, ...          | Thời gian phản hồi từ router (ba gói tin ICMP)                         |
+| `* * *`                   | Không nhận được phản hồi từ router – có thể do chặn ICMP                |
+
+---
+
+###  Phân tích chi tiết:
+
+- Các router trong mạng nội bộ (192.168.x.x, 10.x.x.x) là thiết bị trung gian trước khi ra internet.
+- `localhost` hiển thị do hệ thống không có bản ghi DNS reverse.
+- Các IP như `113.171.x.x` là của nhà mạng VNPT.
+- Dấu `*` cho thấy router không phản hồi, có thể do tường lửa hoặc chặn ICMP.
+- IP đích `103.90.224.90` của `vietnix.vn` đã phản hồi thành công ở bước cuối → kết nối ổn định.
+
+---
+
+### Kết luận:
+
+Lệnh `traceroute` giúp theo dõi hành trình gói tin, xác định vị trí mạng bị chậm hoặc gián đoạn, rất hữu ích để kiểm tra sự cố kết nối và định tuyến mạng.
 
 ##  Netstat Command
 ### Netstat Command là gì?
